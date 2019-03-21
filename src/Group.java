@@ -43,7 +43,7 @@ public class Group {
 	// Method that prints all enrolled group members
 	public void printMembers() {
 		int i=1;
-		System.out.println("Members of " + this.getName() + " group:");
+		System.out.println("\nMembers of " + this.getName() + " group:");
 		for(User u: this.membersList) {
 			System.out.println(i + ": " + u.getName());
 			i++;

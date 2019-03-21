@@ -32,27 +32,34 @@ public class User {
 	// Method that adds aUser to the user's friend list
 	public void addFriend(User aUser) {
 		
-		if(!this.isFriend(aUser)) {
-			this.friendsList.add(aUser);
-			System.out.println(this.getName() + " and " + aUser.getName() + " are now friends!");
+		if(this.isFriend(aUser)) {
+			System.out.println(this.getName() + " and " + aUser.getName() + " are already friends!");
 		}	
 		else {
-			System.out.println(this.getName() + " and " + aUser.getName() + " are already friends!");
+			if(aUser.getId() == this.getId()) {
+				System.out.println("You can't add yourself to the friend list!");
+			}
+			else {
+				this.friendsList.add(aUser);
+				System.out.println(this.getName() + " and " + aUser.getName() + " are now friends!");
+			}
 		}
 	}
 	
 	// Method that prints mutual friends between two users
 	public ArrayList<User> mutualFriends(User aUser) {
 		
-		System.out.println("Mutual friends between " + this.getName() + " and "
+		System.out.println("\nMutual friends between " + this.getName() + " and "
 							+ aUser.getName() + ":");
 		ArrayList<User> mutual = new ArrayList<User>();
 		
+		int k=1;
 		for(User i: this.friendsList) {
 			for(User j: aUser.friendsList) {
 				if(i.getId() == j.getId()) {
 					mutual.add(j);
-					System.out.println(j.getName());
+					System.out.println(k + ": " + j.getName());
+					k++;
 				}
 			}
 		}
@@ -62,7 +69,7 @@ public class User {
 	// Method that prints user's friend list
 	public void printFriends() {
 		int i=1;
-		System.out.println("Friends of " + this.getName() + ":");
+		System.out.println("\nFriends of " + this.getName() + ":");
 		for(User u: this.friendsList) {
 			System.out.println(i + ": " + u.getName());
 			i++;
