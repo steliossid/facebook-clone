@@ -1,7 +1,9 @@
 
 public class Main {
-
+	
 	public static void main(String[] args) {
+		
+		Database.connect();
 		
 		User u1 = new User(1, "Rhett", "rhett@foo.com");
 		User u2 = new User(2, "Jazmin", "jazmin@foo.com");  
