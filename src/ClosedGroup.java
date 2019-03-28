@@ -4,6 +4,7 @@ public class ClosedGroup extends Group{
 	
 	public ClosedGroup(int id, String name, String description) {
 		super(id, name, description);
+		Database.insertGroup(id, name, description);
 	}
 	
 	// Method that overrides addToGroup. Only mutual friends can be members of closed groups

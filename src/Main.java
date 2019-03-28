@@ -13,9 +13,9 @@ public class Main {
 		User u6 = new User(6, "Allan", "allan@foo.com");  
 		User u7 = new User(7, "Devin", "devin@foo.com"); 
 		
-		Group g1 = new Group(1, "TechGurus","A group for tech enthusiasts");  
-		ClosedGroup g2 = new ClosedGroup(2, "ExamSolutions","Solutions to common exam questions");
-
+		Group g1 = new Group(1, "TechGurus", "A group for tech enthusiasts");  
+		ClosedGroup g2 = new ClosedGroup(2, "ExamSolutions", "Solutions to common exam questions");
+		
 		u1.addFriend(u2);
 		u1.addFriend(u3);
 		u1.addFriend(u4);

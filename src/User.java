@@ -11,6 +11,7 @@ public class User {
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		Database.insertUser(id, name, email);
 	}
 	
 	// Method that checks if two users are friends. 
