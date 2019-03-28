@@ -81,7 +81,7 @@ public class Database {
 		finally {
 			try {
 				if (conn != null)
-					conn.close();;
+					conn.close();
 			}
 			catch (SQLException se) {
 				se.printStackTrace();
