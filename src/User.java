@@ -11,7 +11,7 @@ public class User {
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		String sql = "INSERT INTO user" +
+		String sql = "INSERT INTO `user`" +
 				" VALUES (" + id + ", '" + name + "', '" + email + "')";
 		Database.insert(sql);
 	}

@@ -11,7 +11,7 @@ public class Group {
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		String sql = "INSERT INTO group" +
+		String sql = "INSERT INTO `group`" +
 				" VALUES (" + id + ", '" + name + "', '" + description + "')";
 		Database.insert(sql);
 	}
