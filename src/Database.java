@@ -37,39 +37,11 @@ public class Database {
 		}	
 	}
 	
-	public static void insertUser(int id, String name, String email) {
+	public static void insert(String sql) {
 		Statement stmt = null;
 		Connection conn = myConnection();
 		try {
 			stmt = conn.createStatement();
-			String sql = "INSERT INTO user " +
-	                "VALUES (" + id + ", '" + name + "', '" + email + "')";
-			stmt.executeUpdate(sql);
-		}
-		catch(SQLException se){
-			se.printStackTrace();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				if (conn != null)
-					conn.close();
-			}
-			catch (SQLException se) {
-				se.printStackTrace();
-			}
-		}
-	}
-	
-	public static void insertGroup(int id, String name, String description) {
-		Statement stmt = null;
-		Connection conn = myConnection();
-		try {
-			stmt = conn.createStatement();
-			String sql = "INSERT INTO group " +
-	                "VALUES (" + id + ", '" + name + "', '" + description + "')";
 			stmt.executeUpdate(sql);
 		}
 		catch(SQLException se){

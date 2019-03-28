@@ -11,7 +11,9 @@ public class User {
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		Database.insertUser(id, name, email);
+		String sql = "INSERT INTO user" +
+				" VALUES (" + id + ", '" + name + "', '" + email + "')";
+		Database.insert(sql);
 	}
 	
 	// Method that checks if two users are friends. 

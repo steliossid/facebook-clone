@@ -11,7 +11,9 @@ public class Group {
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		Database.insertGroup(id, name, description);
+		String sql = "INSERT INTO group" +
+				" VALUES (" + id + ", '" + name + "', '" + description + "')";
+		Database.insert(sql);
 	}
 	
 	// Method that checks if user is enrolled in a group. 
