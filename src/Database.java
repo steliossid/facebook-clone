@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.Random;
 
 public class Database {
 	
@@ -13,7 +14,7 @@ public class Database {
 	}
 	
 	public static void connect() {
-		
+		Statement stmt = null;
 		Connection conn = null;
 		
 		try {
@@ -21,8 +22,13 @@ public class Database {
 			System.out.println("Connecting to a selected database...");
 		    conn = myConnection();
 		    System.out.println("Connected database successfully...");
+			stmt = conn.createStatement();
+			String sql = "DELETE FROM `user` ";
+			stmt.executeUpdate(sql);
+			String sql1 = "DELETE FROM `group` ";
+			stmt.executeUpdate(sql1);
+
 		}
-		
 		catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -36,8 +42,8 @@ public class Database {
 			}
 		}	
 	}
-	
-	public static void insert(String sql) {
+
+	public static void ExecuteSQL(String sql) {
 		Statement stmt = null;
 		Connection conn = myConnection();
 		try {
@@ -69,5 +75,8 @@ public class Database {
 			return null;
 		}
 	}
-	
+	public static int getRandomNo(int limit) {
+		Random randomno = new Random();
+		return randomno.nextInt(limit);
+	}
 }

@@ -13,7 +13,7 @@ public class User {
 		this.email = email;
 		String sql = "INSERT INTO `user`" +
 				" VALUES (" + id + ", '" + name + "', '" + email + "')";
-		Database.insert(sql);
+		Database.ExecuteSQL(sql);
 	}
 	
 	// Method that checks if two users are friends. 
@@ -34,7 +34,6 @@ public class User {
 	
 	// Method that adds aUser to the user's friend list
 	public void addFriend(User aUser) {
-		
 		if(this.isFriend(aUser)) {
 			System.out.println(this.getName() + " and " + aUser.getName() + " are already friends!");
 		}	
@@ -44,6 +43,10 @@ public class User {
 			}
 			else {
 				this.friendsList.add(aUser);
+				String sql = "INSERT INTO `friends`" +
+						" VALUES (" + Database.getRandomNo(1000) + ", '" + this.id + "', '"
+																		+ aUser.getId() + "')";
+				Database.ExecuteSQL(sql);
 				System.out.println(this.getName() + " and " + aUser.getName() + " are now friends!");
 			}
 		}
@@ -78,7 +81,7 @@ public class User {
 			i++;
 		}	
 	}
-	
+
 	public int getId() {
 		return id;
 	}
