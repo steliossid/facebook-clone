@@ -15,7 +15,7 @@ public class Main {
 		
 		Group g1 = new Group(Database.assignUID(), "TechGurus", "A group for tech enthusiasts");
 		ClosedGroup g2 = new ClosedGroup(Database.assignUID(), "ExamSolutions", "Solutions to common exam questions");
-		
+		//TODO: Remove all ArrayList functionality from addFriend
 		u1.addFriend(u2);
 		u1.addFriend(u3);
 		u1.addFriend(u4);
@@ -31,14 +31,14 @@ public class Main {
 		
 		u6.addFriend(u2);
 		u6.addFriend(u1);
-		
+		//TODO: Find mutual friends using the database and not the ArrayList
 		u1.mutualFriends(u2);
 		u6.mutualFriends(u1);
-		
+		//TODO: Print Friends using the database and not the ArrayList
 		u1.printFriends();	
 		u2.printFriends();
 		u6.printFriends();
-		
+		//TODO: Remove all ArrayList functionality from addToGroup
 		g1.addToGroup(u1);
 		g1.addToGroup(u2);
 		g1.addToGroup(u1);
@@ -51,7 +51,7 @@ public class Main {
 		g2.addToGroup(u6);
 		g2.addToGroup(u3);
 		g2.addToGroup(u7);
-		
+		//TODO: Print Members using the database and not the ArrayList
 		g1.printMembers();
 		g2.printMembers();
 
