@@ -2,7 +2,7 @@ import java.util.Iterator;
 
 public class ClosedGroup extends Group{
 	
-	public ClosedGroup(int id, String name, String description) {
+	public ClosedGroup(String id, String name, String description) {
 		super(id, name, description);
 	}
 	

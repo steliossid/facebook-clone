@@ -5,16 +5,16 @@ public class Main {
 		
 		Database.connect();
 		
-		User u1 = new User(1, "Rhett", "rhett@foo.com");
-		User u2 = new User(2, "Jazmin", "jazmin@foo.com");  
-		User u3 = new User(3, "Dayle", "dayle@foo.com"); 
-		User u4 = new User(4, "Tatiana", "tatiana@foo.com");  
-		User u5 = new User(5, "Bonnie", "bonnie@foo.com");  
-		User u6 = new User(6, "Allan", "allan@foo.com");  
-		User u7 = new User(7, "Devin", "devin@foo.com"); 
+		User u1 = new User(Database.assignUID(), "Rhett", "rhett@foo.com");
+		User u2 = new User(Database.assignUID(), "Jazmin", "jazmin@foo.com");
+		User u3 = new User(Database.assignUID(), "Dayle", "dayle@foo.com");
+		User u4 = new User(Database.assignUID(), "Tatiana", "tatiana@foo.com");
+		User u5 = new User(Database.assignUID(), "Bonnie", "bonnie@foo.com");
+		User u6 = new User(Database.assignUID(), "Allan", "allan@foo.com");
+		User u7 = new User(Database.assignUID(), "Devin", "devin@foo.com");
 		
-		Group g1 = new Group(1, "TechGurus", "A group for tech enthusiasts");  
-		ClosedGroup g2 = new ClosedGroup(2, "ExamSolutions", "Solutions to common exam questions");
+		Group g1 = new Group(Database.assignUID(), "TechGurus", "A group for tech enthusiasts");
+		ClosedGroup g2 = new ClosedGroup(Database.assignUID(), "ExamSolutions", "Solutions to common exam questions");
 		
 		u1.addFriend(u2);
 		u1.addFriend(u3);

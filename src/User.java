@@ -2,17 +2,17 @@ import java.util.ArrayList;
 
 public class User {
 	
-	private int id;
+	private String id;
 	private String name;
 	private String email;
 	private ArrayList<User> friendsList = new ArrayList<User>();
 	
-	public User(int id, String name, String email) {
+	public User(String id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		String sql = "INSERT INTO `user`" +
-				" VALUES (" + id + ", '" + name + "', '" + email + "')";
+				" VALUES ('" + id + "', '" + name + "', '" + email + "')";
 		Database.ExecuteSQL(sql);
 	}
 	
@@ -22,11 +22,11 @@ public class User {
 		
 		boolean flag = false;
 		
-		if(this.getId() == aUser.getId())
+		if(this.getId().equals(aUser.getId()))
 			flag = false;
 		
 		for(User u: this.friendsList) {
-			if(u.getId() == aUser.getId())
+			if(u.getId().equals(aUser.getId()))
 				flag = true;
 		}
 		return flag;
@@ -38,13 +38,13 @@ public class User {
 			System.out.println(this.getName() + " and " + aUser.getName() + " are already friends!");
 		}	
 		else {
-			if(aUser.getId() == this.getId()) {
+			if(aUser.getId().equals(this.getId())) {
 				System.out.println("You can't add yourself to the friend list!");
 			}
 			else {
 				this.friendsList.add(aUser);
 				String sql = "INSERT INTO `friends`" +
-						" VALUES (" + Database.getRandomNo(1000) + ", '" + this.id + "', '"
+						" VALUES ('" + Database.assignUID() + "', '" + this.id + "', '"
 																		+ aUser.getId() + "')";
 				Database.ExecuteSQL(sql);
 				System.out.println(this.getName() + " and " + aUser.getName() + " are now friends!");
@@ -62,7 +62,7 @@ public class User {
 		int k=1;
 		for(User i: this.friendsList) {
 			for(User j: aUser.friendsList) {
-				if(i.getId() == j.getId()) {
+				if(i.getId().equals(j.getId())) {
 					mutual.add(j);
 					System.out.println(k + ": " + j.getName());
 					k++;
@@ -82,7 +82,7 @@ public class User {
 		}	
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	

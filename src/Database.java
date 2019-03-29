@@ -1,5 +1,5 @@
 import java.sql.*;
-import java.util.Random;
+import java.util.UUID;
 
 public class Database {
 	
@@ -27,7 +27,14 @@ public class Database {
 			stmt.executeUpdate(sql);
 			String sql1 = "DELETE FROM `group` ";
 			stmt.executeUpdate(sql1);
-
+			String sql2 = "DELETE FROM `friends` ";
+			stmt.executeUpdate(sql2);
+			String sql3 = "DELETE FROM `members` ";
+			stmt.executeUpdate(sql3);
+			//String sql4 = "DELETE FROM `user_post` ";
+			//stmt.executeUpdate(sql4);
+			//String sql5 = "DELETE FROM `group_post` ";
+			//stmt.executeUpdate(sql5);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -75,8 +82,7 @@ public class Database {
 			return null;
 		}
 	}
-	public static int getRandomNo(int limit) {
-		Random randomno = new Random();
-		return randomno.nextInt(limit);
+	public static String assignUID(){
+		return UUID.randomUUID().toString();
 	}
 }

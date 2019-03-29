@@ -2,17 +2,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Group {
 	
-	protected int id;
+	protected String id;
 	protected String name;
 	protected String description;
 	protected CopyOnWriteArrayList<User> membersList = new CopyOnWriteArrayList<User>();
 	
-	public Group(int id, String name, String description) {
+	public Group(String id, String name, String description) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		String sql = "INSERT INTO `group`" +
-				" VALUES (" + id + ", '" + name + "', '" + description + "')";
+				" VALUES ('" + id + "', '" + name + "', '" + description + "')";
 		Database.ExecuteSQL(sql);
 	}
 	
@@ -23,7 +23,7 @@ public class Group {
 		boolean flag = false;
 
 		for(User u: this.membersList) {
-			if(u.getId() == aUser.getId())
+			if(u.getId().equals(aUser.getId()))
 				flag = true;
 		}
 		return flag;
@@ -35,7 +35,7 @@ public class Group {
 		if(!isMember(aUser)) {
 			this.membersList.add(aUser);
 			String sql = "INSERT INTO `members`" +
-					" VALUES (" + Database.getRandomNo(1000) + ", '" + aUser.getId() + "', '"
+					" VALUES ('" + Database.assignUID() + "', '" + aUser.getId() + "', '"
 					+ this.id + "')";
 			Database.ExecuteSQL(sql);
 			System.out.println(aUser.getName() + " is successfully enrolled to "
@@ -57,7 +57,7 @@ public class Group {
 		}
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
