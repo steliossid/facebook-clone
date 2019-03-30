@@ -31,10 +31,10 @@ public class Database {
 			stmt.executeUpdate(sql2);
 			String sql3 = "DELETE FROM `members` ";
 			stmt.executeUpdate(sql3);
-			//String sql4 = "DELETE FROM `user_post` ";
-			//stmt.executeUpdate(sql4);
-			//String sql5 = "DELETE FROM `group_post` ";
-			//stmt.executeUpdate(sql5);
+			String sql4 = "DELETE FROM `user_post` ";
+			stmt.executeUpdate(sql4);
+			String sql5 = "DELETE FROM `group_post` ";
+			stmt.executeUpdate(sql5);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
