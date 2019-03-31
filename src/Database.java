@@ -23,17 +23,17 @@ public class Database {
 		    conn = myConnection();
 		    System.out.println("Connected database successfully...");
 			stmt = conn.createStatement();
-			String sql = "DELETE FROM `user` ";
+			String sql = "DELETE FROM user_post ";
 			stmt.executeUpdate(sql);
-			String sql1 = "DELETE FROM `group` ";
+			String sql1 = "DELETE FROM group_post ";
 			stmt.executeUpdate(sql1);
-			String sql2 = "DELETE FROM `friends` ";
+			String sql2 = "DELETE FROM friends ";
 			stmt.executeUpdate(sql2);
-			String sql3 = "DELETE FROM `members` ";
+			String sql3 = "DELETE FROM members ";
 			stmt.executeUpdate(sql3);
-			String sql4 = "DELETE FROM `user_post` ";
+			String sql4 = "DELETE FROM `group` ";
 			stmt.executeUpdate(sql4);
-			String sql5 = "DELETE FROM `group_post` ";
+			String sql5 = "DELETE FROM user ";
 			stmt.executeUpdate(sql5);
 		}
 		catch(Exception e) {
@@ -50,12 +50,60 @@ public class Database {
 		}	
 	}
 
-	public static void ExecuteSQL(String sql) {
+	public static void ExecuteUpdate(String sql) {
 		Statement stmt = null;
 		Connection conn = myConnection();
 		try {
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
+		}
+		catch(SQLException se){
+			se.printStackTrace();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if (conn != null)
+					conn.close();
+			}
+			catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+	}
+
+	public static void ExecuteQuery(String sql) {
+		Statement stmt = null;
+		Connection conn = myConnection();
+		try {
+			stmt = conn.createStatement();
+			stmt.executeQuery(sql);
+		}
+		catch(SQLException se){
+			se.printStackTrace();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if (conn != null)
+					conn.close();
+			}
+			catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+	}
+
+	public static void Execute(String sql) {
+		Statement stmt = null;
+		Connection conn = myConnection();
+		try {
+			stmt = conn.createStatement();
+			stmt.execute(sql);
 		}
 		catch(SQLException se){
 			se.printStackTrace();

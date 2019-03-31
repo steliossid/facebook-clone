@@ -13,7 +13,7 @@ public class User {
 		this.email = email;
 		String sql = "INSERT INTO `user`" +
 				" VALUES ('" + id + "', '" + name + "', '" + email + "')";
-		Database.ExecuteSQL(sql);
+		Database.ExecuteUpdate(sql);
 	}
 	
 	// Method that checks if two users are friends. 
@@ -46,7 +46,7 @@ public class User {
 				String sql = "INSERT INTO `friends`" +
 						" VALUES ('" + Database.assignUID() + "', '" + this.id + "', '"
 																		+ aUser.getId() + "')";
-				Database.ExecuteSQL(sql);
+				Database.ExecuteUpdate(sql);
 				System.out.println(this.getName() + " and " + aUser.getName() + " are now friends!");
 			}
 		}

@@ -17,6 +17,10 @@ public class ClosedGroup extends Group{
 		else {
 			if(this.membersList.size()==0) {
 				this.membersList.add(aUser);
+				String sql = "INSERT INTO `members`" +
+						" VALUES ('" + Database.assignUID() + "', '" + aUser.getId() + "', '"
+						+ this.id + "')";
+				Database.ExecuteUpdate(sql);
 				System.out.println(aUser.getName() + " is the first one to enroll to "
 									+ this.getName() + " closed group");
 			}
@@ -25,6 +29,10 @@ public class ClosedGroup extends Group{
 					User u = it.next();
 					if(u.isFriend(aUser)) {
 						this.membersList.add(aUser);
+						String sql = "INSERT INTO `members`" +
+								" VALUES ('" + Database.assignUID() + "', '" + aUser.getId() + "', '"
+								+ this.id + "')";
+						Database.ExecuteUpdate(sql);
 						System.out.println(aUser.getName() + " is successfully enrolled to "
 											+ this.getName() + " closed group");
 					}

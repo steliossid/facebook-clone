@@ -13,7 +13,7 @@ public class Group {
 		this.description = description;
 		String sql = "INSERT INTO `group`" +
 				" VALUES ('" + id + "', '" + name + "', '" + description + "')";
-		Database.ExecuteSQL(sql);
+		Database.ExecuteUpdate(sql);
 	}
 	
 	// Method that checks if user is enrolled in a group. 
@@ -37,7 +37,7 @@ public class Group {
 			String sql = "INSERT INTO `members`" +
 					" VALUES ('" + Database.assignUID() + "', '" + aUser.getId() + "', '"
 					+ this.id + "')";
-			Database.ExecuteSQL(sql);
+			Database.ExecuteUpdate(sql);
 			System.out.println(aUser.getName() + " is successfully enrolled to "
 								+ this.getName() + "group");
 		}
